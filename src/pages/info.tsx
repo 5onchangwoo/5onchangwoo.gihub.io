@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useState } from 'react'
 import { graphql } from 'gatsby'
 import { Global, css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 const globalStyle = css`
   * {
@@ -11,6 +12,26 @@ const globalStyle = css`
     font-size: 20px;
   }
 `
+
+const TextStyle = css`
+  font-size: 18px;
+  font-weight: 700;
+  color: gray;
+`
+
+// Kebeb Case 사용
+const Text1 = styled.div<{ disable: boolean }>`
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: ${({ disable }) => (disable ? 'line-through' : 'none')};
+`
+// Camel Case 적용
+const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
+    fontSize: '15px',
+    color: 'green',
+    textDecoration: disable ? 'line-through' : 'none'
+}))
+
 
 type InfoPageProps = {
     data: {
@@ -31,10 +52,17 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
         },
     },
 }) {
+
+    const [over1, setOver1] = useState(false);
+    const [over2, setOver2] = useState(false);
+    console.log(over2)
+
     return (
         <div>
             <Global styles={globalStyle} />
-            {title} {description} {author}
+            <div css={TextStyle} >{title}</div>
+            <Text1 disable={over1} onMouseOver={() => setOver1(true)} onMouseLeave={() => setOver1(false)}>{description}</Text1>
+            <Text2 disable={over2} onMouseOver={() => setOver2(true)} onMouseLeave={() => setOver2(false)}>{author}</Text2>
         </div>
     )
 }
