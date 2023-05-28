@@ -18,7 +18,11 @@ const TextStyle = css`
   font-weight: 700;
   color: gray;
 `
-
+const Text0 = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  color: gray;
+`
 // Kebeb Case 사용
 const Text1 = styled.div<{ disable: boolean }>`
   font-size: 20px;
@@ -60,7 +64,7 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
   return (
     <div>
       <Global styles={globalStyle} />
-      <div css={TextStyle} >{title}</div>
+      <Text0 >{title}</Text0>
       <Text1 disable={over1} onMouseOver={() => setOver1(true)} onMouseLeave={() => setOver1(false)}>{description}</Text1>
       <Text2 disable={over2} onMouseOver={() => setOver2(true)} onMouseLeave={() => setOver2(false)}>{author}</Text2>
     </div>
