@@ -27,44 +27,44 @@ const Text1 = styled.div<{ disable: boolean }>`
 `
 // Camel Case 적용
 const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
-    fontSize: '15px',
-    color: 'green',
-    textDecoration: disable ? 'line-through' : 'none'
+  fontSize: '15px',
+  color: 'green',
+  textDecoration: disable ? 'line-through' : 'none'
 }))
 
 
 type InfoPageProps = {
-    data: {
-        site: {
-            siteMetadata: {
-                title: string
-                description: string
-                author: string
-            }
-        }
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+        description: string
+        author: string
+      }
     }
+  }
 }
 
 const InfoPage: FunctionComponent<InfoPageProps> = function ({
-    data: {
-        site: {
-            siteMetadata: { title, description, author },
-        },
+  data: {
+    site: {
+      siteMetadata: { title, description, author },
     },
+  },
 }) {
 
-    const [over1, setOver1] = useState(false);
-    const [over2, setOver2] = useState(false);
-    console.log(over2)
+  const [over1, setOver1] = useState(false);
+  const [over2, setOver2] = useState(false);
+  console.log(over2)
 
-    return (
-        <div>
-            <Global styles={globalStyle} />
-            <div css={TextStyle} >{title}</div>
-            <Text1 disable={over1} onMouseOver={() => setOver1(true)} onMouseLeave={() => setOver1(false)}>{description}</Text1>
-            <Text2 disable={over2} onMouseOver={() => setOver2(true)} onMouseLeave={() => setOver2(false)}>{author}</Text2>
-        </div>
-    )
+  return (
+    <div>
+      <Global styles={globalStyle} />
+      <div css={TextStyle} >{title}</div>
+      <Text1 disable={over1} onMouseOver={() => setOver1(true)} onMouseLeave={() => setOver1(false)}>{description}</Text1>
+      <Text2 disable={over2} onMouseOver={() => setOver2(true)} onMouseLeave={() => setOver2(false)}>{author}</Text2>
+    </div>
+  )
 }
 
 export default InfoPage
