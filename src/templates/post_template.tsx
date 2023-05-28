@@ -7,59 +7,59 @@ import PostContent from 'components/post/PostContent'
 import CommentWidget from 'components/post/CommentWidget'
 
 type PostTemplateProps = {
-    data: {
-        allMarkdownRemark: {
-            edges: PostPageItemType[]
-        }
+  data: {
+    allMarkdownRemark: {
+      edges: PostPageItemType[]
     }
-    location: {
-        href: string
-    }
+  }
+  location: {
+    href: string
+  }
 }
 
 export type PostPageItemType = {
-    node: {
-        html: string
-        frontmatter: PostFrontmatterType
-    }
+  node: {
+    html: string
+    frontmatter: PostFrontmatterType
+  }
 }
 
 
 
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
-    data: {
-        allMarkdownRemark: { edges },
-    },
-    location: { href },
+  data: {
+    allMarkdownRemark: { edges },
+  },
+  location: { href },
 }) {
-    const {
-        node: {
-            html,
-            frontmatter: {
-                title,
-                summary,
-                date,
-                categories,
-                thumbnail: {
-                    childImageSharp: { gatsbyImageData },
-                    publicURL,
-                },
-            },
+  const {
+    node: {
+      html,
+      frontmatter: {
+        title,
+        summary,
+        date,
+        categories,
+        thumbnail: {
+          childImageSharp: { gatsbyImageData },
+          publicURL,
         },
-    } = edges[0];
+      },
+    },
+  } = edges[0];
 
-    return (
-        <Template title={title} description={summary} url={href} image={publicURL}>
-            <PostHead
-                title={title}
-                date={date}
-                categories={categories}
-                thumbnail={gatsbyImageData}
-            />
-            <PostContent html={html} />
-            <CommentWidget />
-        </Template>
-    )
+  return (
+    <Template title={title} description={summary} url={href} image={publicURL}>
+      <PostHead
+        title={title}
+        date={date}
+        categories={categories}
+        thumbnail={gatsbyImageData}
+      />
+      <PostContent html={html} />
+      <CommentWidget />
+    </Template>
+  )
 }
 
 

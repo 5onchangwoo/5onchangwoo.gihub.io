@@ -10,27 +10,27 @@ import queryString, { ParsedQuery } from 'query-string'
 import Template from 'components/common/Template'
 
 type IndexPageProps = {
-    location: {
-        search: string
+  location: {
+    search: string
+  }
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+        description: string
+        siteUrl: string
+      }
     }
-    data: {
-        site: {
-            siteMetadata: {
-                title: string
-                description: string
-                siteUrl: string
-            }
-        }
-        allMarkdownRemark: {
-            edges: PostListItemType[]
-        }
-        file: {
-            childImageSharp: {
-                gatsbyImageData: IGatsbyImageData
-            }
-            publicURL: string
-        }
+    allMarkdownRemark: {
+      edges: PostListItemType[]
     }
+    file: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData
+      }
+      publicURL: string
+    }
+  }
 }
 
 const Container = styled.div`
@@ -41,63 +41,63 @@ const Container = styled.div`
 
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
-    location: { search },
-    data: {
-        site: {
-            siteMetadata: { title, description, siteUrl },
-        },
-        allMarkdownRemark: { edges },
-        file: {
-            childImageSharp: { gatsbyImageData },
-            publicURL,
-        },
+  location: { search },
+  data: {
+    site: {
+      siteMetadata: { title, description, siteUrl },
     },
+    allMarkdownRemark: { edges },
+    file: {
+      childImageSharp: { gatsbyImageData },
+      publicURL,
+    },
+  },
 }) {
-    const parsed: ParsedQuery<string> = queryString.parse(search)
-    const selectedCategory: string =
-        typeof parsed.category !== 'string' || !parsed.category
-            ? 'All'
-            : parsed.category
+  const parsed: ParsedQuery<string> = queryString.parse(search)
+  const selectedCategory: string =
+    typeof parsed.category !== 'string' || !parsed.category
+      ? 'All'
+      : parsed.category
 
-    const categoryList = useMemo(
-        () =>
-            edges.reduce(
-                (
-                    list: CategoryListProps['categoryList'],
-                    {
-                        node: {
-                            frontmatter: { categories },
-                        },
-                    }: PostType,
-                ) => {
-                    categories.forEach(category => {
-                        if (list[category] === undefined) list[category] = 1;
-                        else list[category]++;
-                    });
+  const categoryList = useMemo(
+    () =>
+      edges.reduce(
+        (
+          list: CategoryListProps['categoryList'],
+          {
+            node: {
+              frontmatter: { categories },
+            },
+          }: PostType,
+        ) => {
+          categories.forEach(category => {
+            if (list[category] === undefined) list[category] = 1;
+            else list[category]++;
+          });
 
-                    list['All']++;
+          list['All']++;
 
-                    return list;
-                },
-                { All: 0 },
-            ),
-        [],
-    )
-    return (
-        <Template
-            title={title}
-            description={description}
-            url={siteUrl}
-            image={publicURL}
-        >
-            <Introduction profileImage={gatsbyImageData} />
-            <CategoryList
-                selectedCategory={selectedCategory}
-                categoryList={categoryList}
-            />
-            <PostList selectedCategory={selectedCategory} posts={edges} />
-        </Template>
-    )
+          return list;
+        },
+        { All: 0 },
+      ),
+    [],
+  )
+  return (
+    <Template
+      title={title}
+      description={description}
+      url={siteUrl}
+      image={publicURL}
+    >
+      <Introduction profileImage={gatsbyImageData} />
+      <CategoryList
+        selectedCategory={selectedCategory}
+        categoryList={categoryList}
+      />
+      <PostList selectedCategory={selectedCategory} posts={edges} />
+    </Template>
+  )
 }
 
 export default IndexPage
