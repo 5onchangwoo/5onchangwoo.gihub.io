@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.10.0"/><meta data-react-helmet="true" name="description" content="리액트 기반의 gatsby를 사용해서 블로그 배포하기"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:title" content="Github로 블로그 배포하기"/><meta data-react-helmet="true" property="og:description" content="리액트 기반의 gatsby를 사용해서 블로그 배포하기"/><meta data-react-helmet="true" property="og:image" content="/static/607562461c079bc45a1492d5b947ee5c/traditional-web-jamstack.png"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:site_name" content="Github로 블로그 배포하기"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="Github로 블로그 배포하기"/><meta data-react-helmet="true" name="twitter:description" content="리액트 기반의 gatsby를 사용해서 블로그 배포하기"/><meta data-react-helmet="true" name="twitter:image" content="/static/607562461c079bc45a1492d5b947ee5c/traditional-web-jamstack.png"/><meta data-react-helmet="true" name="twitter:site" content="@5onchangwoo"/><meta data-react-helmet="true" name="twitter:creator" content="@5onchangwoo"/><meta data-react-helmet="true" name="naver-site-verification" content="2fcd51b0a26aabd80ff725901900a2be6a94cb6f"/><meta data-react-helmet="true" name="google-site-verification" content="IAIWAUkfyflQh1SHEkbb1zSRlQ-gakO2rvLCOTLpUso"/><style data-href="/styles.9e907bc32054b7771552.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><title data-react-helmet="true">Github로 블로그 배포하기</title><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="canonical" href="https://5onchangwoo.github.io/blog/Github-Blog-Deployment/" data-baseprotocol="https:" data-basehost="5onchangwoo.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1oj83b30"><style data-emotion="css-global kxm5mf">@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp ewnd50x1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo ewnd50x0"><div style="max-width:650px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;500&#x27;%20width=&#x27;650&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVR42p2Sy27aQBRA+ZJu+jv9jarqJj/SD2gX3URVFHVVKW1CtgaiYojBNhScGOMYXBLEI/Zg/JjrubfyA6JIfaCe3WjuuXMfU6GcdAciAoAQgvYgkkBIABKOQqDIjsVNZS8bxm2vPzBH1mBouK6bW2UQpOnQtgzbGtoWB9inrRSm67rT6dS270xz5Lqu4ziMsTJEsum4i6d68OkaTlQ6VunSfJIBQM/QWq12rVbXdb3T6czn8+xxovRDW7w+40fn928+x0df6e03fNd4VnZRIQCEYUREz3oGES09ESYUpsSSzWxFIX+SETHI8TxvuVxut9vNZsN5FpEKbMyjL+P12WTjbIERuknEdhPLZM65oijNZvP8olqtXjYaV7Is/5zNiCiE9NXF5OX77y8+qicjf0qJDtFdmoisoVwWQvg56/V6sVgwxjzPi+M4u0J0GL/1+M1j8hinnDBGTHZrOKDnP1NOu9fraZomSTVJql0riqqq9w8PRdLiUwgk/K0shJhMJqORNRwahnFj5fi+f9DLuY9RFJWrASga3v+wv8mIYvBjIMut8XjMGOt2VbnVXq1W//TLPauaXq9fmaYZBEG/3++q2qHyf/ML63lQljrB3PgAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/607562461c079bc45a1492d5b947ee5c/9fb47/traditional-web-jamstack.webp 163w,/static/607562461c079bc45a1492d5b947ee5c/993de/traditional-web-jamstack.webp 325w,/static/607562461c079bc45a1492d5b947ee5c/68ea1/traditional-web-jamstack.webp 650w" sizes="(min-width: 650px) 650px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 650px) 650px, 100vw" decoding="async" loading="lazy" data-src="/static/607562461c079bc45a1492d5b947ee5c/ff423/traditional-web-jamstack.png" data-srcset="/static/607562461c079bc45a1492d5b947ee5c/28dce/traditional-web-jamstack.png 163w,/static/607562461c079bc45a1492d5b947ee5c/c4917/traditional-web-jamstack.png 325w,/static/607562461c079bc45a1492d5b947ee5c/ff423/traditional-web-jamstack.png 650w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/607562461c079bc45a1492d5b947ee5c/9fb47/traditional-web-jamstack.webp 163w,/static/607562461c079bc45a1492d5b947ee5c/993de/traditional-web-jamstack.webp 325w,/static/607562461c079bc45a1492d5b947ee5c/68ea1/traditional-web-jamstack.webp 650w" sizes="(min-width: 650px) 650px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 650px) 650px, 100vw" decoding="async" loading="lazy" src="/static/607562461c079bc45a1492d5b947ee5c/ff423/traditional-web-jamstack.png" srcSet="/static/607562461c079bc45a1492d5b947ee5c/28dce/traditional-web-jamstack.png 163w,/static/607562461c079bc45a1492d5b947ee5c/c4917/traditional-web-jamstack.png 325w,/static/607562461c079bc45a1492d5b947ee5c/ff423/traditional-web-jamstack.png 650w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e22nvw23"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e22nvw22"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e22nvw21">Github로 블로그 배포하기</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e22nvw20"><div>Frontend / Blog / React</div><div>2023.05.28.</div></div></div></div><style data-emotion="css uo146q">.css-uo146q{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-uo146q p{padding:3px 0;}.css-uo146q h1,.css-uo146q h2,.css-uo146q h3{font-weight:800;margin-bottom:30px;}.css-uo146q *+h1,.css-uo146q *+h2,.css-uo146q *+h3{margin-top:80px;}.css-uo146q hr+h1,.css-uo146q hr+h2,.css-uo146q hr+h3{margin-top:0;}.css-uo146q h1{font-size:30px;}.css-uo146q h2{font-size:25px;}.css-uo146q h3{font-size:20px;}.css-uo146q blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-uo146q ol,.css-uo146q ul{margin-left:20px;padding:30px 0;}.css-uo146q hr{border:1px solid #000000;margin:100px 0;}.css-uo146q a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-uo146q pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-uo146q pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-uo146q code[class*='language-'],.css-uo146q pre[class*='language-']{tab-size:2;}@media (max-width: 768px){.css-uo146q{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-uo146q h1{font-size:23px;}.css-uo146q h2{font-size:20px;}.css-uo146q h3{font-size:17px;}.css-uo146q img{width:100%;}.css-uo146q hr{margin:50px 0;}}</style><div class="css-uo146q ek55sos0"><h1>Gitblog</h1>
+<h2>티스토리에서 github 블로그로 옮기게 된 이유</h2>
+<p>기존에 티스토리에서 블로그를 작성하고 있었다. 하지만 일일커밋도 진행하고 있던 나는 블로그에 쓰는 것 또한 커밋에 포함시키고 싶어서 작성한 내용을 반복해서 깃허브에 올렸었다.
+이러한 문제를 해결하고 싶었던 나는 다양한 방법을 생각해 봤다</p>
+<ol>
+<li>깃허브에 티스토리 블로그에 쓴 글의 URL을 그대로 작성해두기</li>
+<li>깃허브 페이지를 이용한 깃허브 블로그 만들기</li>
+<li>블로그를 포기하기</li>
+</ol>
+<p>등등… 다양한 방법을 생각하던 중 1번과 3번은 너무 싫었던 나는 2번을 생각했는데 그동안은 깃허브 페이지를 만드려면 쟈킬언어를 추가로 배워야할꺼라고 생각해서 후일로 미루고 있었다.
+그렇게 시간만 흐르던 중 react기반으로 깃허브 페이지를 만들 수 있다는 것을 알게 되었고 적극 찾아본 결과 react 기반의 gatsby 프레임워크를 사용해서 만들 수 있다는 것을 알게 되었다.
+블로그를 구현하고 나서 구현하면서 알게된 점들을 정리하는 시간을 갖으려고 한다.</p>
+<h2>JAM Stack이란?</h2>
+<p>JAM Stack은 Javascript, API, Markup Stack의 약자.</p>
+<blockquote>
+<p>(JAM Stack 공식 홈페이지 설명)<br>
+Jamstack is an architecture designed to make the web faster, more secure, and easier to scale.<br>
+JAM Stack 은 더 빠르고, 안전하며, 스케일링하기 쉬운 웹을 만들기 위해 디자인된 아키텍처</p>
+</blockquote>
+<h4>J(JavaScript)</h4>
+<p>동적인 요소 처리
+Front-End 라이브러리, 프레임워크
+API 요청</p>
+<h4>A(API)</h4>
+<p>서버 또는 DB에서 담당하던 역할
+추상화된 재사용 가능 API
+Cloud Function, Third party APIs</p>
+<h4>M(Markup)</h4>
+<p>문서 내용의 시각적 표현
+빌드 시 페이지 생성 (Prebuilt Pages)</p>
+<h3>JAM Stack 동작 원리</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/607562461c079bc45a1492d5b947ee5c/663f3/traditional-web-jamstack.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 77.08333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVR42p2Sy27aQBRA+ZJu+jv9jarqJj/SD2gX3URVFHVVKW1CtgaiYojBNhScGOMYXBLEI/Zg/JjrubfyA6JIfaCe3WjuuXMfU6GcdAciAoAQgvYgkkBIABKOQqDIjsVNZS8bxm2vPzBH1mBouK6bW2UQpOnQtgzbGtoWB9inrRSm67rT6dS270xz5Lqu4ziMsTJEsum4i6d68OkaTlQ6VunSfJIBQM/QWq12rVbXdb3T6czn8+xxovRDW7w+40fn928+x0df6e03fNd4VnZRIQCEYUREz3oGES09ESYUpsSSzWxFIX+SETHI8TxvuVxut9vNZsN5FpEKbMyjL+P12WTjbIERuknEdhPLZM65oijNZvP8olqtXjYaV7Is/5zNiCiE9NXF5OX77y8+qicjf0qJDtFdmoisoVwWQvg56/V6sVgwxjzPi+M4u0J0GL/1+M1j8hinnDBGTHZrOKDnP1NOu9fraZomSTVJql0riqqq9w8PRdLiUwgk/K0shJhMJqORNRwahnFj5fi+f9DLuY9RFJWrASga3v+wv8mIYvBjIMut8XjMGOt2VbnVXq1W//TLPauaXq9fmaYZBEG/3++q2qHyf/ML63lQljrB3PgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/607562461c079bc45a1492d5b947ee5c/a59e9/traditional-web-jamstack.webp 192w,
+/static/607562461c079bc45a1492d5b947ee5c/0ca9f/traditional-web-jamstack.webp 384w,
+/static/607562461c079bc45a1492d5b947ee5c/309d5/traditional-web-jamstack.webp 650w"
+              sizes="(max-width: 650px) 100vw, 650px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/607562461c079bc45a1492d5b947ee5c/3b721/traditional-web-jamstack.png 192w,
+/static/607562461c079bc45a1492d5b947ee5c/66595/traditional-web-jamstack.png 384w,
+/static/607562461c079bc45a1492d5b947ee5c/663f3/traditional-web-jamstack.png 650w"
+            sizes="(max-width: 650px) 100vw, 650px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/607562461c079bc45a1492d5b947ee5c/663f3/traditional-web-jamstack.png"
+            alt="traditinal-web-jamstack"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+기존의 웹서비스는 Web Server - App Server - database / CMS(Content Management System)의 구조를 거쳐서 사용자에게 데이터를 전달하는 방식으로 동작했습니다.
+이러한 과정은 구조가 복잡하다는 단점이 있었습니다. 반면 JAM Stack은 절차를 매우 간다하게 만들어 사용자에게 전달해주게 된다.</p>
+<h3>JAM Stack 장점</h3>
+<ul>
+<li>높은 안정성</li>
+<li>빠른 성능</li>
+<li>확장성 및 낮은 비용</li>
+<li>쉬운 자동화</li>
+</ul>
+<h2>Gatsby??</h2>
+<p>Gatsby는 JAM Stack을 활용하는 정적 페이지 생성기이다. 다영한 정적 페이지 생성기가 있지만 그 중 Gatsby를 사용하는 이유가 있다.</p>
+<ol>
+<li>내가 직접 모든걸 만드는 것도 좋지만 프레임워크를 이용해서 제작해보고 싶다는 생각이 듦</li>
+<li>리액트를 할줄 알았기 때문에 리액트 기반의 프레임워크가 필요했다. => next, gatsby</li>
+<li>Next는 주로 동적 페이지를 생성하는 것에 사용된다. 반면 gatsby는 주로 정적 페이지를 제공하는 것에 특화되어있다.</li>
+<li>따라서 기술 블로그를 만드는 것에는 Gatsby가 적합하다 생각하여 선택</li>
+</ol>
+<p>즉, Gatsby는 서버 없이, 정적 사이트를 생성하기 위해 사용하는 프레임워크이기 때문에 선택하게 되었다.</p>
+<h3>SPA vs Gatsby</h3>
+<p>JavaScript가 실행되면 빈 HTML 페이지 안에 마크업을 추가해주는 SPA(Single Page Application) 와 다르게, 개발 후 Build 과정에서 마크업이 생성됩니다. 페이지 내 모든 콘텐츠가 생성되어있기에 SEO(Search Engine Optimization)와 SPA는 사용하기 까다롭던 Github pages에서도 걱정없이 사용할 수 있다</p>
+<h3>Gatsby 구조</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8f2ce8899c701db6e127eecd22a48417/78d47/gatsby-data-sources-build-deploy.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 83.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsklEQVR42m2Ty47UQAxF++vZ8QmsZ80OJAQb2IB4DRukEWgkmG6mp9NJOqmnfW1w5dGdMKWKlNg+qlvXzkYfWWKP/0P7z/Rwramdg6u1EREmEDEzADCDiVg13b3r3z9xH59yfcNQppIGeKzBBIOrnWsPkTNEVERCnx7uYlOBWQFh5vren46RMigBEMqsUmBibg/hsHVdE8vhnCO5Nva1C13IkYi4O4Zq69oqpGCfI6wquFgmyZRBRCAKkSJ0SstYAxTZj9hly178t2f59kUJYYqXVLnaeGcwLknKnBMzhOvv4n6d/Rcxwck0X9w58yBj5nMmVX11dfPp9W9V82zOWmtWsPHL81X1y5vbn193qlp6pyt+Af/PR0fJRzN/KU3FeBHZqOgMU2bmUSGG4bEgTSmsJ6wccubNqtKn0Gd/Cl3t/SkNjc2JQVjDg0gmTJuHjgDm8jKFS/PGk1eDX94Rfzyn7dvVX1Hmd0QWhtlOJo8Irg3HD1fH65fB4RxP58qF2zlR38SuSacqdnWsdu6wl+qem73vm9Q3qauj7/IK1jKyZdsYy7DF7OYSlTkIlrn4n+y/NuHlC3tbfagAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/8f2ce8899c701db6e127eecd22a48417/a59e9/gatsby-data-sources-build-deploy.webp 192w,
+/static/8f2ce8899c701db6e127eecd22a48417/0ca9f/gatsby-data-sources-build-deploy.webp 384w,
+/static/8f2ce8899c701db6e127eecd22a48417/dc9b9/gatsby-data-sources-build-deploy.webp 768w,
+/static/8f2ce8899c701db6e127eecd22a48417/cf465/gatsby-data-sources-build-deploy.webp 800w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/8f2ce8899c701db6e127eecd22a48417/3b721/gatsby-data-sources-build-deploy.png 192w,
+/static/8f2ce8899c701db6e127eecd22a48417/66595/gatsby-data-sources-build-deploy.png 384w,
+/static/8f2ce8899c701db6e127eecd22a48417/fe486/gatsby-data-sources-build-deploy.png 768w,
+/static/8f2ce8899c701db6e127eecd22a48417/78d47/gatsby-data-sources-build-deploy.png 800w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/8f2ce8899c701db6e127eecd22a48417/fe486/gatsby-data-sources-build-deploy.png"
+            alt="gatsby-data-sources-build-deploy"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h4>1. Data Sources</h4>
+<p>데이터를 가져올 수 있는 곳, API, CMS, Markdown등 다양한 곳에서 데이터를 가져올 수 있다.</p>
+<h4>2. Build</h4>
+<p>Gatsby는 기본적으로 GraphQL을 사용해서 데이터 소스에서 데이터를 가져오는 방식이다. 플러그인을 이용해서 RESTful API에서 가져올 수도 있다.<br>
+코드는 React를 이용해서 컴포넌트를 통해서 구현. react에서 사용하는 기능을 Gatsby에서도 사용할 수 있다.</p>
+<h4>3. Deploy</h4>
+<p>Gatsby는 빌드하면 SPA가 아닌 정적 페이지로 빌드한다. GraphQL로 가져온 데이터도 모두 포함되어 있다는 것이 특징이다!
+(SPA는 api통신을 통해서 데이터를 가져와야 하지만 Gatsby는 빌드파일에 모두 포함되어 있다)</p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e37rk6g0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx evi8j960">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2023 Developer Son, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/Github-Blog-Deployment/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-7063450cdd80f4628e8f.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-8fe83802673548e67850.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-047133f8ab665b375752.js\"],\"component---src-pages-info-tsx\":[\"/component---src-pages-info-tsx-3af5c593afb81db09fdd.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-91639ec68f29e98a8e3b.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="6e066f1b38936dcbad37";</script><script src="/webpack-runtime-1eb6e091d415eea05533.js" async></script><script src="/framework-6a525285796fb83f2864.js" async></script><script src="/app-7063450cdd80f4628e8f.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
