@@ -39,7 +39,6 @@ const Container = styled.div`
   height: 100%;
 `
 
-
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
@@ -71,13 +70,13 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
           }: PostType,
         ) => {
           categories.forEach(category => {
-            if (list[category] === undefined) list[category] = 1;
-            else list[category]++;
-          });
+            if (list[category] === undefined) list[category] = 1
+            else list[category]++
+          })
 
-          list['All']++;
+          list['All']++
 
-          return list;
+          return list
         },
         { All: 0 },
       ),
@@ -141,4 +140,4 @@ export const getPostList = graphql`
       publicURL
     }
   }
-`;
+`

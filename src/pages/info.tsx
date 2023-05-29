@@ -33,9 +33,8 @@ const Text1 = styled.div<{ disable: boolean }>`
 const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
   fontSize: '15px',
   color: 'green',
-  textDecoration: disable ? 'line-through' : 'none'
+  textDecoration: disable ? 'line-through' : 'none',
 }))
-
 
 type InfoPageProps = {
   data: {
@@ -56,17 +55,28 @@ const InfoPage: FunctionComponent<InfoPageProps> = function ({
     },
   },
 }) {
-
-  const [over1, setOver1] = useState(false);
-  const [over2, setOver2] = useState(false);
+  const [over1, setOver1] = useState(false)
+  const [over2, setOver2] = useState(false)
   console.log(over2)
 
   return (
     <div>
       <Global styles={globalStyle} />
-      <Text0 >{title}</Text0>
-      <Text1 disable={over1} onMouseOver={() => setOver1(true)} onMouseLeave={() => setOver1(false)}>{description}</Text1>
-      <Text2 disable={over2} onMouseOver={() => setOver2(true)} onMouseLeave={() => setOver2(false)}>{author}</Text2>
+      <Text0>{title}</Text0>
+      <Text1
+        disable={over1}
+        onMouseOver={() => setOver1(true)}
+        onMouseLeave={() => setOver1(false)}
+      >
+        {description}
+      </Text1>
+      <Text2
+        disable={over2}
+        onMouseOver={() => setOver2(true)}
+        onMouseLeave={() => setOver2(false)}
+      >
+        {author}
+      </Text2>
     </div>
   )
 }

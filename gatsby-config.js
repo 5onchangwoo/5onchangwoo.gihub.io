@@ -45,8 +45,8 @@ module.exports = {
           formats: ['auto', 'webp'],
           quality: 100,
           placeholder: 'blurred',
-        }
-      }
+        },
+      },
     },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
@@ -106,7 +106,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: "https://5onchangwoo.github.io/",
+        siteUrl: 'https://5onchangwoo.github.io/',
         stripQueryString: true,
       },
     },

@@ -78,23 +78,31 @@ const Summary = styled.div`
   opacity: 0.8;
 `
 
-const PostItem: FunctionComponent<PostItemProps> = function ({ title, date, categories, summary, thumbnail: { childImageSharp: { gatsbyImageData } }, link }) {
-    return (
-        <PostItemWrapper to={link}>
-            <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-            <PostItemContent>
-                <Title>{title}</Title>
-                <Date>{date}</Date>
-                <Category>
-                    {categories.map(item => (
-                        <CategoryItem key={item}>{item}</CategoryItem>
-                    ))}
-                </Category>
-                <Summary>{summary}</Summary>
-
-            </PostItemContent>
-        </PostItemWrapper>
-    );
+const PostItem: FunctionComponent<PostItemProps> = function ({
+  title,
+  date,
+  categories,
+  summary,
+  thumbnail: {
+    childImageSharp: { gatsbyImageData },
+  },
+  link,
+}) {
+  return (
+    <PostItemWrapper to={link}>
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <PostItemContent>
+        <Title>{title}</Title>
+        <Date>{date}</Date>
+        <Category>
+          {categories.map(item => (
+            <CategoryItem key={item}>{item}</CategoryItem>
+          ))}
+        </Category>
+        <Summary>{summary}</Summary>
+      </PostItemContent>
+    </PostItemWrapper>
+  )
 }
 
 export default PostItem

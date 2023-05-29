@@ -16,12 +16,12 @@ const FooterWrapper = styled.footer`
 `
 
 const Footer: FunctionComponent = function () {
-    return (
-        <FooterWrapper>
-            Thank You for Visiting My Blog, Have a Good Day 😆
-            <br />© 2023 Developer Son, Powered By Gatsby.
-        </FooterWrapper>
-    )
+  return (
+    <FooterWrapper>
+      Thank You for Visiting My Blog, Have a Good Day 😆
+      <br />© 2023 Developer Son, Powered By Gatsby.
+    </FooterWrapper>
+  )
 }
 
 export default Footer

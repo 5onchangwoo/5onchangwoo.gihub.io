@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 
 interface PostContentProps {
-    html: string
+  html: string
 }
 
 const MarkdownRenderer = styled.div`
@@ -130,7 +130,7 @@ const MarkdownRenderer = styled.div`
 `
 
 const PostContent: FunctionComponent<PostContentProps> = function ({ html }) {
-    return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
+  return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
 }
 
 export default PostContent

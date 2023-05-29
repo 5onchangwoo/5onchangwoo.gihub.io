@@ -4,13 +4,13 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import PostHeadInfo, { PostHeadInfoProps } from './PostHeadInfo'
 
 type GatsbyImgProps = {
-    image: IGatsbyImageData
-    alt: string
-    className?: string
+  image: IGatsbyImageData
+  alt: string
+  className?: string
 }
 
 type PostHeadProps = PostHeadInfoProps & {
-    thumbnail: IGatsbyImageData
+  thumbnail: IGatsbyImageData
 }
 
 const PostHeadWrapper = styled.div`
@@ -24,7 +24,7 @@ const PostHeadWrapper = styled.div`
 `
 
 const BackgroundImage = styled((props: GatsbyImgProps) => (
-    <GatsbyImage {...props} style={{ position: 'absolute' }} />
+  <GatsbyImage {...props} style={{ position: 'absolute' }} />
 ))`
   z-index: -1;
   width: 100%;
@@ -38,16 +38,16 @@ const BackgroundImage = styled((props: GatsbyImgProps) => (
 `
 
 const PostHead: FunctionComponent<PostHeadProps> = function ({
-    title,
-    date,
-    categories,
-    thumbnail,
+  title,
+  date,
+  categories,
+  thumbnail,
 }) {
-    return (
-        <PostHeadWrapper>
-            <BackgroundImage image={thumbnail} alt="thumbnail" />
-            <PostHeadInfo title={title} date={date} categories={categories} />
-        </PostHeadWrapper>
-    )
+  return (
+    <PostHeadWrapper>
+      <BackgroundImage image={thumbnail} alt="thumbnail" />
+      <PostHeadInfo title={title} date={date} categories={categories} />
+    </PostHeadWrapper>
+  )
 }
 export default PostHead

@@ -41,17 +41,17 @@ const GoToMainButton = styled(Link)`
 `
 
 const NotFoundPage: FunctionComponent = function () {
-    return (
-        <NotFoundPageWrapper>
-            <GlobalStyle />
-            <NotFoundText>404</NotFoundText>
-            <NotFoundDescription>
-                찾을 수 없는 페이지입니다. <br />
-                다른 콘텐츠를 보러 가보시겠어요?
-            </NotFoundDescription>
-            <GoToMainButton to="/">메인으로</GoToMainButton>
-        </NotFoundPageWrapper>
-    )
+  return (
+    <NotFoundPageWrapper>
+      <GlobalStyle />
+      <NotFoundText>404</NotFoundText>
+      <NotFoundDescription>
+        찾을 수 없는 페이지입니다. <br />
+        다른 콘텐츠를 보러 가보시겠어요?
+      </NotFoundDescription>
+      <GoToMainButton to="/">메인으로</GoToMainButton>
+    </NotFoundPageWrapper>
+  )
 }
 
 export default NotFoundPage

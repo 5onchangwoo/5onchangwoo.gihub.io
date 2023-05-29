@@ -4,17 +4,16 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
 
-
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 
-const path = require('path');
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const path = require('path')
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
-  const output = getConfig().output || {};
+  const output = getConfig().output || {}
 
   actions.setWebpackConfig({
     output,
@@ -25,24 +24,23 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         hooks: path.resolve(__dirname, 'src/hooks'),
       },
     },
-  });
-};
+  })
+}
 
 // Generate a Slug Each Post Data
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode });
+    const slug = createFilePath({ node, getNode })
 
-    createNodeField({ node, name: 'slug', value: slug });
+    createNodeField({ node, name: 'slug', value: slug })
   }
-};
-
+}
 
 // Generate Post Page Through Markdown Data
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   // Get All Markdown File For Paging
   const queryAllMarkdownData = await graphql(
@@ -64,18 +62,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
     `,
-  );
+  )
 
   // Handling GraphQL Query Error
   if (queryAllMarkdownData.errors) {
-    reporter.panicOnBuild(`Error while running query`);
-    return;
+    reporter.panicOnBuild(`Error while running query`)
+    return
   }
-   // Import Post Template Component
-   const PostTemplateComponent = path.resolve(
+  // Import Post Template Component
+  const PostTemplateComponent = path.resolve(
     __dirname,
     'src/templates/post_template.tsx',
-  );
+  )
 
   // Page Generating Function
   const generatePostPage = ({
@@ -87,14 +85,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: slug,
       component: PostTemplateComponent,
       context: { slug },
-    };
+    }
 
-    createPage(pageOptions);
-  };
+    createPage(pageOptions)
+  }
 
   // Generate Post Page And Passing Slug Props for Query
-  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(generatePostPage);
-};
+  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(generatePostPage)
+}
 // exports.createPages = async ({ actions }) => {
 //   const { createPage } = actions
 //   createPage({
