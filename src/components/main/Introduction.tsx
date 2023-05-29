@@ -9,7 +9,11 @@ type IntroductionProps = {
 
 const Background = styled.div`
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-image: linear-gradient(
+    -100deg,
+    rgb(204, 54, 211),
+    rgb(106, 124, 239)
+  );
   color: #ffffff;
 `
 
@@ -32,7 +36,7 @@ const Wrapper = styled.div`
 const SubTitle = styled.div`
   font-size: 20px;
   font-weight: 400;
-  
+
   @media (max-width: 768px) {
     font-size: 15px;
   }
@@ -48,7 +52,9 @@ const Title = styled.div`
   }
 `
 
-const Introduction: FunctionComponent<IntroductionProps> = function ({ profileImage }) {
+const Introduction: FunctionComponent<IntroductionProps> = function ({
+  profileImage,
+}) {
   return (
     <Background>
       <Wrapper>

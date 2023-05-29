@@ -3,7 +3,7 @@ date: '2023-05-28'
 title: 'Github로 블로그 배포하기'
 categories: ['Frontend', 'Blog', 'React']
 summary: '리액트 기반의 gatsby를 사용해서 블로그 배포하기'
-thumbnail: './Github로_블로그_배포하기/traditional-web-jamstack.png'
+thumbnail: './Github-Blog-Deployment/traditional-web-jamstack.png'
 ---
 
 # Gitblog
@@ -39,7 +39,7 @@ Cloud Function, Third party APIs
 
 
 ### JAM Stack 동작 원리
-![traditinal-web-jamstack](./Github로_블로그_배포하기/traditional-web-jamstack.png)  
+![traditinal-web-jamstack](./Github-Blog-Deployment/traditional-web-jamstack.png)  
 기존의 웹서비스는 Web Server - App Server - database / CMS(Content Management System)의 구조를 거쳐서 사용자에게 데이터를 전달하는 방식으로 동작했습니다.
 이러한 과정은 구조가 복잡하다는 단점이 있었습니다. 반면 JAM Stack은 절차를 매우 간다하게 만들어 사용자에게 전달해주게 된다.
 
@@ -62,7 +62,7 @@ Gatsby는 JAM Stack을 활용하는 정적 페이지 생성기이다. 다영한 
 JavaScript가 실행되면 빈 HTML 페이지 안에 마크업을 추가해주는 SPA(Single Page Application) 와 다르게, 개발 후 Build 과정에서 마크업이 생성됩니다. 페이지 내 모든 콘텐츠가 생성되어있기에 SEO(Search Engine Optimization)와 SPA는 사용하기 까다롭던 Github pages에서도 걱정없이 사용할 수 있다
 
 ### Gatsby 구조
-![gatsby-data-sources-build-deploy](./Github로_블로그_배포하기/gatsby-data-sources-build-deploy.png)  
+![gatsby-data-sources-build-deploy](./Github-Blog-Deployment/gatsby-data-sources-build-deploy.png)  
 
 #### 1. Data Sources
 데이터를 가져올 수 있는 곳, API, CMS, Markdown등 다양한 곳에서 데이터를 가져올 수 있다.
