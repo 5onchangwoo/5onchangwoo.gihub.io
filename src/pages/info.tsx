@@ -13,11 +13,11 @@ const globalStyle = css`
   }
 `
 
-const TextStyle = css`
-  font-size: 18px;
-  font-weight: 700;
-  color: gray;
-`
+// const TextStyle = css`
+//   font-size: 18px;
+//   font-weight: 700;
+//   color: gray;
+// `
 const Text0 = styled.div`
   font-size: 18px;
   font-weight: 700;

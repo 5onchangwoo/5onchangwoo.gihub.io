@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import PostItem from 'components/main/PostItem'
 import { PostListItemType, PostFrontmatterType } from 'types/PostItem.types'

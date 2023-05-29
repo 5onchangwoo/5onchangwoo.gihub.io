@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useMemo } from 'react'
-import styled from '@emotion/styled'
 import Introduction from 'components/main/Introduction'
 import CategoryList, { CategoryListProps } from 'components/main/CategoryList'
 import { graphql } from 'gatsby'
@@ -32,12 +31,6 @@ type IndexPageProps = {
     }
   }
 }
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
