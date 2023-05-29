@@ -23,6 +23,23 @@ const defaultStyle = css`
     text-decoration: none;
     cursor: pointer;
   }
+
+  :root {
+    --main-color: #fff;
+    --box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+    --post-item-hover-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  }
+
+  :root .dark {
+    --main-color: #121212;
+    --second-color: #242424;
+    --text-color: #fff;
+    --box-shadow: 0 0 2px rgba(255, 255, 255, 0.7);
+    --post-item-hover-shadow: 0 0 20px rgba(255, 255, 255, 1);
+
+    background-color: var(--main-color);
+    color: var(--text-color);
+  }
 `
 
 const GlobalStyle: FunctionComponent = function () {

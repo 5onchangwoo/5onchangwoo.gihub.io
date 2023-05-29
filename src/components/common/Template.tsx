@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import GlobalStyle from 'components/common/GlobalStyle'
 import Footer from 'components/common/Footer'
 import { Helmet } from 'react-helmet'
+import ThemeButton from './ThemeButton'
 
 type TemplateProps = {
   title: string
@@ -62,6 +63,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
       <GlobalStyle />
       {children}
       <Footer />
+      <ThemeButton />
     </Container>
   )
 }
