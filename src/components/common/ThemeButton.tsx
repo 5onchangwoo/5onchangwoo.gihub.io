@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { FunctionComponent, useContext } from 'react'
-import { ThemeContext } from './ThemeProvider'
+import { ThemeContext } from './CustomThemeProvider'
 
 const ThemeButtonDiv = styled.div`
   position: fixed;

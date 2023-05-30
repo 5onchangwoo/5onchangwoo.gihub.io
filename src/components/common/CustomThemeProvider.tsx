@@ -5,15 +5,21 @@ import {
   useEffect,
   useState,
 } from 'react'
+import { ThemeProvider } from '@emotion/react'
 
-export const ThemeContext: Context<any> = createContext({})
+export let ThemeContext: Context<any> = createContext({
+  isDark: '',
+  setIsDark: () => {},
+})
 type ThemeProps = {
   children: React.ReactNode
 }
 
 const isBrowser = typeof window !== 'undefined'
 
-const ThemeProvider: FunctionComponent<ThemeProps> = function ({ children }) {
+const CustomThemeProvider: FunctionComponent<ThemeProps> = function ({
+  children,
+}) {
   const systemPrefers = isBrowser
     ? window.matchMedia('(prefers-color-scheme: dark)')
     : null
@@ -22,8 +28,8 @@ const ThemeProvider: FunctionComponent<ThemeProps> = function ({ children }) {
   useEffect(() => {
     const osTheme = systemPrefers?.matches ? 'dark' : 'light'
     const userTheme = localStorage.getItem('color-theme')
-    const theme = userTheme || osTheme
-    if (theme === 'dark') {
+    const resultTheme = userTheme || osTheme
+    if (resultTheme === 'dark') {
       document.body.classList.add('dark')
       setIsDark(true)
     } else {
@@ -44,11 +50,15 @@ const ThemeProvider: FunctionComponent<ThemeProps> = function ({ children }) {
       return !prev
     })
   }
+
+  const theme = {
+    isDark: isDark,
+  }
   return (
     <ThemeContext.Provider value={{ isDark, handleTheme }}>
-      {children}
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   )
 }
 
-export default ThemeProvider
+export default CustomThemeProvider

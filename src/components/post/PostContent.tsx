@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
+import { useTheme } from '@emotion/react'
 
 interface PostContentProps {
   html: string
 }
 
-const MarkdownRenderer = styled.div`
+const MarkdownRenderer = styled.div<any>`
   // Renderer Style
   display: flex;
   flex-direction: column;
@@ -60,7 +61,8 @@ const MarkdownRenderer = styled.div`
   blockquote {
     margin: 30px 0;
     padding: 5px 15px;
-    border-left: 2px solid #000000;
+    border-left: ${props =>
+      props.theme.isDark ? '2px solid #fff' : '2px solid #000000'};
     font-weight: 800;
   }
 
@@ -128,7 +130,6 @@ const MarkdownRenderer = styled.div`
     }
   }
 `
-
 const PostContent: FunctionComponent<PostContentProps> = function ({ html }) {
   return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
 }
