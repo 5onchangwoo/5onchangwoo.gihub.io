@@ -4,6 +4,7 @@ import GlobalStyle from 'components/common/GlobalStyle'
 import Footer from 'components/common/Footer'
 import { Helmet } from 'react-helmet'
 import ThemeButton from './ThemeButton'
+import ThemeProvider from './ThemeProvider'
 
 type TemplateProps = {
   title: string
@@ -59,11 +60,12 @@ const Template: FunctionComponent<TemplateProps> = function ({
         />
         <html lang="ko" />
       </Helmet>
-
-      <GlobalStyle />
-      {children}
-      <Footer />
-      <ThemeButton />
+      <ThemeProvider>
+        <GlobalStyle />
+        {children}
+        <Footer />
+        <ThemeButton />
+      </ThemeProvider>
     </Container>
   )
 }

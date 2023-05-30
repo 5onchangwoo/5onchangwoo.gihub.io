@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { FunctionComponent, useEffect, useState } from 'react'
+import { FunctionComponent, useContext } from 'react'
+import { ThemeContext } from './ThemeProvider'
 
 const ThemeButtonDiv = styled.div`
   position: fixed;
@@ -51,7 +52,7 @@ const ThemeButtonDiv = styled.div`
     opacity: 0.4;
   }
 
-  .crater:first-child {
+  .crater:first-of-type {
     left: 15%;
     top: 7.5%;
     height: 15%;
@@ -131,39 +132,9 @@ const ThemeButtonDiv = styled.div`
     transform: translate(-100%, 0);
   }
 `
-const isBrowser = typeof window !== 'undefined'
 
 const ThemeButton: FunctionComponent = () => {
-  const [isDark, setIsDark] = useState<boolean>(false)
-  const systemPrefers = isBrowser
-    ? window.matchMedia('(prefers-color-scheme: dark)')
-    : null
-
-  useEffect(() => {
-    const osTheme = systemPrefers?.matches ? 'dark' : 'light'
-    const userTheme = localStorage.getItem('color-theme')
-    const theme = userTheme || osTheme
-    if (theme === 'dark') {
-      document.body.classList.add('dark')
-      setIsDark(true)
-    } else {
-      document.body.classList.remove('dark')
-      setIsDark(false)
-    }
-  }, [systemPrefers])
-
-  const handleTheme = () => {
-    setIsDark(prev => {
-      if (!prev) {
-        localStorage.setItem('color-theme', 'dark')
-        document.body.classList.add('dark')
-      } else {
-        localStorage.setItem('color-theme', 'light')
-        document.body.classList.remove('dark')
-      }
-      return !prev
-    })
-  }
+  const { isDark, handleTheme } = useContext(ThemeContext)
 
   return (
     <ThemeButtonDiv className="theme-button-wrapper">
