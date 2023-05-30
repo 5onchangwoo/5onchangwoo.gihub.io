@@ -1,7 +1,7 @@
 ---
 date: '2023-05-28'
 title: 'Github로 블로그 배포하기'
-categories: ['Frontend', 'Blog', 'React']
+categories: ['Blog']
 summary: '리액트 기반의 gatsby를 사용해서 블로그 배포하기'
 thumbnail: './Github-Blog-Deployment/traditional-web-jamstack.png'
 ---
