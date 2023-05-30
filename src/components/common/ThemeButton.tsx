@@ -131,13 +131,16 @@ const ThemeButtonDiv = styled.div`
     transform: translate(-100%, 0);
   }
 `
+const isBrowser = typeof window !== 'undefined'
 
 const ThemeButton: FunctionComponent = () => {
   const [isDark, setIsDark] = useState<boolean>(false)
-  const systemPrefers = window.matchMedia('(prefers-color-scheme: dark)')
+  const systemPrefers = isBrowser
+    ? window.matchMedia('(prefers-color-scheme: dark)')
+    : null
 
   useEffect(() => {
-    const osTheme = systemPrefers.matches ? 'dark' : 'light'
+    const osTheme = systemPrefers?.matches ? 'dark' : 'light'
     const userTheme = localStorage.getItem('color-theme')
     const theme = userTheme || osTheme
     if (theme === 'dark') {
