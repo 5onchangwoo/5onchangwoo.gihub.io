@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.10.0"/><meta data-react-helmet="true" name="description" content="디자인 패턴의 생성패턴 중 하나인 팩토리 메서드 패턴에 대해서 알아보기"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:title" content="디자인 패턴 - 팩토리 메서드"/><meta data-react-helmet="true" property="og:description" content="디자인 패턴의 생성패턴 중 하나인 팩토리 메서드 패턴에 대해서 알아보기"/><meta data-react-helmet="true" property="og:image" content="/static/368f999e524384af26a4adc508facc4d/defalut-thumbnail.png"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:site_name" content="디자인 패턴 - 팩토리 메서드"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="디자인 패턴 - 팩토리 메서드"/><meta data-react-helmet="true" name="twitter:description" content="디자인 패턴의 생성패턴 중 하나인 팩토리 메서드 패턴에 대해서 알아보기"/><meta data-react-helmet="true" name="twitter:image" content="/static/368f999e524384af26a4adc508facc4d/defalut-thumbnail.png"/><meta data-react-helmet="true" name="twitter:site" content="@5onchangwoo"/><meta data-react-helmet="true" name="twitter:creator" content="@5onchangwoo"/><meta data-react-helmet="true" name="naver-site-verification" content="2fcd51b0a26aabd80ff725901900a2be6a94cb6f"/><meta data-react-helmet="true" name="google-site-verification" content="IAIWAUkfyflQh1SHEkbb1zSRlQ-gakO2rvLCOTLpUso"/><style data-href="/styles.9134b44f79420454f79c.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 -.1em .2em #000;white-space:pre;word-break:normal;word-spacing:normal}:not(pre)>code[class*=language-],pre[class*=language-]{background:#141414}pre[class*=language-]{border:.3em solid #545454;border-radius:.5em;box-shadow:inset 1px 1px .5em #000;margin:.5em 0;overflow:auto;padding:1em}pre[class*=language-]::selection{background:#27292a}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:hsla(0,0%,93%,.15);text-shadow:none}:not(pre)>code[class*=language-]{border:.13em solid #545454;border-radius:.3em;box-shadow:inset 1px 1px .3em -.1em #000;padding:.15em .2em .05em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#787878}.token.namespace,.token.punctuation{opacity:.7}.token.boolean,.token.deleted,.token.number,.token.tag{color:#cf694a}.token.builtin,.token.constant,.token.keyword,.token.property,.token.selector,.token.symbol{color:#f9ee9a}.language-css .token.string,.style .token.string,.token.attr-name,.token.attr-value,.token.char,.token.entity,.token.inserted,.token.operator,.token.string,.token.url,.token.variable{color:#919e6b}.token.atrule{color:#7386a5}.token.important,.token.regex{color:#e9c163}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.language-markup .token.attr-name,.language-markup .token.punctuation,.language-markup .token.tag{color:#ad895c}.token{position:relative;z-index:1}.line-highlight.line-highlight{background:rgba(84,84,84,.25);background:linear-gradient(90deg,rgba(84,84,84,.1) 70%,rgba(84,84,84,0));border-bottom:1px dashed #545454;border-top:1px dashed #545454;margin-top:.75em;z-index:0}.line-highlight.line-highlight:before,.line-highlight.line-highlight[data-end]:after{background-color:#8794a6;color:#f5f2f0}pre[class*=language-].line-numbers{counter-reset:linenumber;padding-left:3.8em;position:relative}pre[class*=language-].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{border-right:1px solid #999;font-size:100%;left:-3.8em;letter-spacing:-1px;pointer-events:none;position:absolute;top:0;-webkit-user-select:none;user-select:none;width:3em}.line-numbers-rows>span{counter-increment:linenumber;display:block}.line-numbers-rows>span:before{color:#999;content:counter(linenumber);display:block;padding-right:.8em;text-align:right}</style><title data-react-helmet="true">디자인 패턴 - 팩토리 메서드</title><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="canonical" href="https://5onchangwoo.github.io/cs/design-pattern/creational/factory-method/" data-baseprotocol="https:" data-basehost="5onchangwoo.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1oj83b30"><style data-emotion="css-global 1tp8h3s">@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}:root{--main-color:#fff;--box-shadow:0 0 2px rgba(0, 0, 0, 0.7);--post-item-hover-shadow:0 0 20px rgba(0, 0, 0, 1);}:root .dark{--main-color:#121212;--second-color:#242424;--text-color:#fff;--box-shadow:0 0 2px rgba(255, 255, 255, 0.7);--post-item-hover-shadow:0 0 20px rgba(255, 255, 255, 1);background-color:var(--main-color);color:var(--text-color);}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp ewnd50x1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo ewnd50x0"><div style="max-width:600px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;800&#x27;%20width=&#x27;600&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAAAsSAAALEgHS3X78AAABlUlEQVR42oXKSS8EQRwF8P/HsItlMI2R2BLLwbjgorkIF+FAcLCccMHFkliSGVuPbYaEAwdCrF+mq2d6qY8h3dXd1V1dlUl+eXl5efBXgiJU4rdE/S1l/RHOAX5KEasMfdtUkR8PfJWjT64KQhX5KlfhowKFVLreQ1TfRwC8VSFWte1V4K1a9cFLDeKrpZ5r0XMdeiECOzzVa66YDxGPMfTYwHryxRDk4hqHpGUpFJVzQKZVcyVClISmtAllHJDqyId0RnRpInDQkw/p5eljaATsDBRCkjyDeS5YH9YjCq6RImBZ1pdlfUXWV8YExr0cLzBgbtKYmzTmWbptqgiYnjGKmGXoPphYMHmMiUWxJReMrpoi8qoprwUZDBjasByma92k3THs22RBcssK2WaYyR1zUAD6di1qL2Lf6t+3kzqgoPvQoo4ijgNOWNCewhxp3J62XKcBZyHQdo45LgIuCcumUAnFghYFc2So1quAa9xC3NhAusZxHunGc4ubPdKdK57FUhZD4x1mNBHZgJzn3vOAGx/wPytAgY2EjJGyAAAAAElFTkSuQmCC" alt=""/><picture><source type="image/webp" data-srcset="/static/368f999e524384af26a4adc508facc4d/0526f/defalut-thumbnail.webp 150w,/static/368f999e524384af26a4adc508facc4d/6ab4e/defalut-thumbnail.webp 300w,/static/368f999e524384af26a4adc508facc4d/06ea9/defalut-thumbnail.webp 600w" sizes="(min-width: 600px) 600px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 600px) 600px, 100vw" decoding="async" loading="lazy" data-src="/static/368f999e524384af26a4adc508facc4d/fef98/defalut-thumbnail.png" data-srcset="/static/368f999e524384af26a4adc508facc4d/5d695/defalut-thumbnail.png 150w,/static/368f999e524384af26a4adc508facc4d/f3ecd/defalut-thumbnail.png 300w,/static/368f999e524384af26a4adc508facc4d/fef98/defalut-thumbnail.png 600w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/368f999e524384af26a4adc508facc4d/0526f/defalut-thumbnail.webp 150w,/static/368f999e524384af26a4adc508facc4d/6ab4e/defalut-thumbnail.webp 300w,/static/368f999e524384af26a4adc508facc4d/06ea9/defalut-thumbnail.webp 600w" sizes="(min-width: 600px) 600px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 600px) 600px, 100vw" decoding="async" loading="lazy" src="/static/368f999e524384af26a4adc508facc4d/fef98/defalut-thumbnail.png" srcSet="/static/368f999e524384af26a4adc508facc4d/5d695/defalut-thumbnail.png 150w,/static/368f999e524384af26a4adc508facc4d/f3ecd/defalut-thumbnail.png 300w,/static/368f999e524384af26a4adc508facc4d/fef98/defalut-thumbnail.png 600w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e22nvw23"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e22nvw22"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e22nvw21">디자인 패턴 - 팩토리 메서드</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e22nvw20"><div>cs / design-pattern</div><div>2023.06.08.</div></div></div></div><style data-emotion="css nyi0my">.css-nyi0my{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-nyi0my p{padding:3px 0;}.css-nyi0my h1,.css-nyi0my h2,.css-nyi0my h3{font-weight:800;margin-bottom:20px;}.css-nyi0my *+h1,.css-nyi0my *+h2,.css-nyi0my *+h3{margin-top:40px;}.css-nyi0my hr+h1,.css-nyi0my hr+h2,.css-nyi0my hr+h3{margin-top:0;}.css-nyi0my h1{font-size:30px;}.css-nyi0my h2{font-size:25px;}.css-nyi0my h3{font-size:20px;}.css-nyi0my blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-nyi0my ol,.css-nyi0my ul{margin-left:20px;padding:10px 0 30px 0;}.css-nyi0my hr{border:1px solid #000000;margin:100px 0;}.css-nyi0my a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-nyi0my pre[class*='language-']{margin:0 0 30px 0;padding:15px;font-size:15px;}.css-nyi0my pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-nyi0my code[class*='language-'],.css-nyi0my pre[class*='language-']{tab-size:2;}.css-nyi0my .gatsby-highlight pre[class*='language-'].line-numbers{padding-left:2.8em;}@media (max-width: 768px){.css-nyi0my{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-nyi0my h1{font-size:23px;}.css-nyi0my h2{font-size:20px;}.css-nyi0my h3{font-size:17px;}.css-nyi0my img{width:100%;}.css-nyi0my hr{margin:50px 0;}}</style><div class="css-nyi0my ek55sos0"><h1>Factory Method Pattern</h1>
+<h2>팩토리 메서드 패턴이란?</h2>
+<ul>
+<li>팩토리 메서드 패턴은 부모(상위)클래스에 알려지지 않은 추상 클래스를 생성하는 패턴으로 자식(하위)클래스가 직접 어떤 객체를 생성할지 결정하도록 하는 패턴!</li>
+<li>즉, 객체 생성을 위한 패턴으로 생성과 사용의 분리를 통해서 유연하게 객체를 생성할 수 있게 된다.</li>
+<li>또한 객체 생성에 필요한 과정들을 템플릿처럼 정해놓고 각 과정을 구현할 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/887c4ea2cbe3617895ac2a5829ae9c08/f8250/architecture.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 57.8125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABQElEQVR42pVS2aqDQAyd//8wW7BYqgi22Ie6drF1rbumnEAuF+lDDRySySSZk0wUrZA8zynLMirLkh6PB10uF4qiiM+4g0/9UmieZ9bP55MT67rmZNd1KQxDPqMo7FUF0zSltm1pGAaapon9sPu+Z32/39cVvN1utN/vybIs2u12bB+PRzqdTmQYBtm2/VtBkaqqeGZxHFMQBHQ4HOh6vTIz+PGgwutL/CJo2fM81v9lFcOl4MeXBBR+DSiK4g8ycAkWjQ+R2Pf7za2LDT9GonA4n888XNkvJH77lNfrxTG+73O8AJ8CP+apsAoYKgaKVxzH4YFjDZqm4eJA13Ucg0QA7cqiA8JYIRiLCSAJxRAAGceR24eWxU6ShO9BRBijbdjIVXIJwAZtsPvWMhhst1vSdZ02mw1pmsarY5om+6E/AZadDLpSrnMAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/887c4ea2cbe3617895ac2a5829ae9c08/a59e9/architecture.webp 192w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/0ca9f/architecture.webp 384w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/dc9b9/architecture.webp 768w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/e2c2f/architecture.webp 1152w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/f3efb/architecture.webp 1536w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/c3387/architecture.webp 2872w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/887c4ea2cbe3617895ac2a5829ae9c08/3b721/architecture.png 192w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/66595/architecture.png 384w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/fe486/architecture.png 768w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/d2d74/architecture.png 1152w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/e8464/architecture.png 1536w,
+/static/887c4ea2cbe3617895ac2a5829ae9c08/f8250/architecture.png 2872w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/887c4ea2cbe3617895ac2a5829ae9c08/fe486/architecture.png"
+            alt="image"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></li>
+</ul>
+<h2>왜 사용하나요?</h2>
+<ul>
+<li>생성자 (Creator)와 구현 객체(concrete product)의 강한 결합을 피함</li>
+<li>객체가 생성될때 반복적으로 할 일을 수행시킬 수 있음</li>
+<li>캡슐화, 추상화를 통해 생성되는 객체의 구체적인 타입 은닉</li>
+<li>단일 책임 원칙 (SRP) 준수
+<ul>
+<li>객체 생성 코드를 한 곳 (패키지, 클래스 등)으로 이동시켜 코드를 유지보수하기 쉽게할 수 있으므로 원칙을 만족</li>
+</ul>
+</li>
+<li>개방 폐쇄 원칙 (OCP) 준수
+<ul>
+<li>기존 코드를 수정하지 않고 새로운 유형의 제품 인스턴스를 프로그램에 도입할 수 있음 (확정성 증가)</li>
+</ul>
+</li>
+<li>생성에 대한 인터페이스 부분과 생성에 대한 구현 부분을 따로 나뉘었기 때문에 패키지 분리하여 개별로 여러 개발자가 협업을 통해 개발가능
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2ca7243bb2d69d8bbff6f694d3f4d51a/6068e/interface.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 67.1875%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACG0lEQVR42o2TiY6bMBCG8/5v1u5JkuZYwh2ICclyh8PYX4XTrbqqqq2lTzMexv+YGVjotmV6eEJvtqj1BrVeG18+PCE3u7u1LKYoQg8jehj+CVqzoOtIPY+dZRHaNv5+T/D2xlBVMCf1Pbrr0Lfb3f7JHJvpe1RRmoILbjeqoiAWgrwoDNnlQt22jFIyjCNKa75aRngYWOimRUtpgpOUZOezYbvZEAYBSZLQNs3nw1pTVRWXLKMqS/RfgtNkEucbiTTlJIQhPZ+5XK9UTYMC5DSZ2zZtSxCGvFoWcRwjlWJu3S/BxvSJSZpAGkXslktWz08cNhuOjkuTv6OHnul2Q/UdXVkSuQ7bpWXyp7nXTX0XVKOkLSpDk5eIKEaEMd7eJvYCEj8kP1/oq4ZbWdNVjSFLBO7e5nJK7/GyRivFouwkxyxn5wY8LX/wuPzBmx8RZ+94sWC1s03seb01+1BkfHtZmr24Fjy8rvj+bOGJd0YFi6q79y0VJ8TpRCoE5zQ1wzhG0e/4zClJuFwyM6z5WVPXBIFP6Hucr8VdsBkmEpFi27bBcQ7YB9sI+r7P4XDAcRxc18V1HYa5X/dRGz6+qHaYGKRi0Y4akWZGaK48i3ieR5qmJlEqzThpY+U0+8ocnPnw5aSYW2cEq27i0c+xgpyXIGcZFVhhzupYYkU18xu0/0HTS5TSLObqx3zgXI8k5d1+EBc9X/8jn9dPbRXc8O2w8KAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2ca7243bb2d69d8bbff6f694d3f4d51a/a59e9/interface.webp 192w,
+/static/2ca7243bb2d69d8bbff6f694d3f4d51a/0ca9f/interface.webp 384w,
+/static/2ca7243bb2d69d8bbff6f694d3f4d51a/dc9b9/interface.webp 768w,
+/static/2ca7243bb2d69d8bbff6f694d3f4d51a/e2c2f/interface.webp 1152w,
+/static/2ca7243bb2d69d8bbff6f694d3f4d51a/e8733/interface.webp 1508w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2ca7243bb2d69d8bbff6f694d3f4d51a/3b721/interface.png 192w,
+/static/2ca7243bb2d69d8bbff6f694d3f4d51a/66595/interface.png 384w,
+/static/2ca7243bb2d69d8bbff6f694d3f4d51a/fe486/interface.png 768w,
+/static/2ca7243bb2d69d8bbff6f694d3f4d51a/d2d74/interface.png 1152w,
+/static/2ca7243bb2d69d8bbff6f694d3f4d51a/6068e/interface.png 1508w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2ca7243bb2d69d8bbff6f694d3f4d51a/fe486/interface.png"
+            alt="image"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></li>
+</ul>
+<h2>언제 사용하나요?</h2>
+<ul>
+<li>클래스의 생성과 사용 로직 분리로 결합도를 낮춰야 할때</li>
+<li>캡슐화를 통해 정보 은닉이 필요한 경우</li>
+<li>사용자가 구성요소를 확장할 수 있도록 제공해야 할때(라이브러리, 프레임워크 만들때 유용)</li>
+<li>기존 객체를 재구성하는 대신 기존 객체를 재사용하여 리소스 절약하고자 할 때</li>
+</ul>
+<h2>문제점</h2>
+<ul>
+<li>각 제품 구현체마다 팩토리 객체들을 생성해야하기 때문에, 구현체가 늘어날때 마다 팩토리 클래스가 증가 (서브 클래스 증가)</li>
+<li>코드 복잡성 증가</li>
+</ul>
+<h2>구현 방법 (자바)</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/79bba52632168da624a54e858cb9e9cf/38095/uml.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30.729166666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzElEQVR42m1QWQqFMBDz/kcUca2tu4hK3eeRPOuPFmrHkEky48l9ruviu22brOvKf4d9HfCWZXlxPFdYu4gxhSilxBgjwzCItZYNx3HQZN931hBLkkTSNCX2KQg3EPI8p2DXdRRx6c/zfFLjNk1DDvBPQTiVZXkn1DKO48sdBwmdgVuNM6MgQMT3fV+01myY51mCIODNsuxpVuqfvm1bTgN+XddcVVVVnNLDJ45jCcOQIASxO2BRFDG1E8Q6pmnifjEJ6r7vpSgK1uD8AA90z8OLclM8AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/79bba52632168da624a54e858cb9e9cf/a59e9/uml.webp 192w,
+/static/79bba52632168da624a54e858cb9e9cf/0ca9f/uml.webp 384w,
+/static/79bba52632168da624a54e858cb9e9cf/dc9b9/uml.webp 768w,
+/static/79bba52632168da624a54e858cb9e9cf/8c31b/uml.webp 827w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/79bba52632168da624a54e858cb9e9cf/3b721/uml.png 192w,
+/static/79bba52632168da624a54e858cb9e9cf/66595/uml.png 384w,
+/static/79bba52632168da624a54e858cb9e9cf/fe486/uml.png 768w,
+/static/79bba52632168da624a54e858cb9e9cf/38095/uml.png 827w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/79bba52632168da624a54e858cb9e9cf/fe486/uml.png"
+            alt="UML"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<ul>
+<li><a href="https://github.com/5onchangwoo/design-pattern/tree/main/src/com/example/dessignpattern/creational/factorymethod" target="_blank" rel="nofollow">자바 코드 보러가기</a></li>
+</ul></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e37rk6g0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx evi8j960">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2023 Developer Son, Powered By Gatsby.</footer><style data-emotion="css 7oodsm">.css-7oodsm{position:fixed;margin-top:10px;right:0;margin-right:10px;}.css-7oodsm .toggle{height:30px;width:60px;border-radius:50px;margin:auto;background-image:linear-gradient(skyblue, white);position:relative;cursor:pointer;box-shadow:var(--box-shadow);}@media (max-width: 768px){.css-7oodsm .toggle{height:20px;width:40px;}}.css-7oodsm .toggle.dark{background-image:linear-gradient(midnightblue, rebeccapurple);}.css-7oodsm .notch{height:90%;width:45%;border-radius:50%;background:#f2f5a9;position:absolute;top:5%;left:2.5%;box-shadow:0 0 5px yellow;z-index:1;-webkit-transition:all 0.6s ease;transition:all 0.6s ease;}.css-7oodsm .notch>.crater{background:burlywood;border-radius:50%;position:absolute;opacity:0;box-shadow:0 5px 5px rgba(0, 0, 0, 0.4) inset;}.css-7oodsm .dark .crater{opacity:0.4;}.css-7oodsm .crater:first-of-type{left:15%;top:7.5%;height:15%;width:20%;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);}.css-7oodsm .crater:last-child{right:15%;top:7.5%;height:15%;width:12.5%;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);}.css-7oodsm .dark>.notch{background:whitesmoke;box-shadow:0 0 5px whitesmoke;-webkit-transform:translate(110%, 0);-moz-transform:translate(110%, 0);-ms-transform:translate(110%, 0);transform:translate(110%, 0);}.css-7oodsm .shape{position:absolute;background:#e6e6e6;border-radius:50%;-webkit-transition:all 0.2s;transition:all 0.2s;}.css-7oodsm .shape.sm{height:5%;width:25%;top:50%;left:60%;-webkit-transition:all 0s ease-out;transition:all 0s ease-out;}.css-7oodsm .shape.md{height:10%;width:32.5%;top:25%;left:25%;z-index:2;}.css-7oodsm .shape.lg{height:15%;width:50%;bottom:20%;left:25%;}.css-7oodsm .dark .shape{background:lightgray;box-shadow:0 0 0.7px 0.5px violet;}.css-7oodsm .dark .shape.sm{height:5%;width:2.5%;-webkit-transform:translate(-800%, 0);-moz-transform:translate(-800%, 0);-ms-transform:translate(-800%, 0);transform:translate(-800%, 0);background:#f3f781;}.css-7oodsm .dark .shape.sm:first-of-type{-webkit-transform:translate(-700%, 300%);-moz-transform:translate(-700%, 300%);-ms-transform:translate(-700%, 300%);transform:translate(-700%, 300%);}.css-7oodsm .dark .shape.md{height:10%;width:5%;-webkit-transform:translate(5%, 0);-moz-transform:translate(5%, 0);-ms-transform:translate(5%, 0);transform:translate(5%, 0);}.css-7oodsm .dark .shape.lg{height:15%;width:10%;-webkit-transform:translate(-100%, 0);-moz-transform:translate(-100%, 0);-ms-transform:translate(-100%, 0);transform:translate(-100%, 0);}</style><div class="theme-button-wrapper css-7oodsm e1pyddnw0"><div class="toggle"><div class="notch"><div class="crater"></div><div class="crater"></div></div><div><div class="shape sm"></div><div class="shape sm"></div><div class="shape md"></div><div class="shape lg"></div></div></div></div></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/cs/design-pattern/creational/factory-method/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-aa121af5bb1fed6184b9.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-1bf7e9849b5082318f7c.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-0ae55313969a2f8353a3.js\"],\"component---src-pages-info-tsx\":[\"/component---src-pages-info-tsx-6e2a72ce878605da4937.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-610685a02c8c227a4db6.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="65ac4eb313713eda187d";</script><script src="/webpack-runtime-f388d1705da268fadf9e.js" async></script><script src="/framework-6a525285796fb83f2864.js" async></script><script src="/app-aa121af5bb1fed6184b9.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
