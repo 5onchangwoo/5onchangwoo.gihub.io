@@ -87,7 +87,7 @@ const MarkdownRenderer = styled.div<any>`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 30px 0;
+    margin: 0 0 30px 0;
     padding: 15px;
     font-size: 15px;
 
@@ -100,6 +100,10 @@ const MarkdownRenderer = styled.div<any>`
   code[class*='language-'],
   pre[class*='language-'] {
     tab-size: 2;
+  }
+
+  .gatsby-highlight pre[class*='language-'].line-numbers {
+    padding-left: 2.8em;
   }
 
   // Markdown Responsive Design
