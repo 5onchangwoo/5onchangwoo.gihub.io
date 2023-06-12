@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.10.0"/><meta data-react-helmet="true" name="description" content="spring boot에서 설정(프로퍼티)를 환경마다 다르게 실행하여 봅시다."/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:title" content="Spring boot의 설정 정보(application.yml / properties) 분리시키기 - spring profiles"/><meta data-react-helmet="true" property="og:description" content="spring boot에서 설정(프로퍼티)를 환경마다 다르게 실행하여 봅시다."/><meta data-react-helmet="true" property="og:image" content="/static/368f999e524384af26a4adc508facc4d/defalut-thumbnail.png"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:site_name" content="Spring boot의 설정 정보(application.yml / properties) 분리시키기 - spring profiles"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="Spring boot의 설정 정보(application.yml / properties) 분리시키기 - spring profiles"/><meta data-react-helmet="true" name="twitter:description" content="spring boot에서 설정(프로퍼티)를 환경마다 다르게 실행하여 봅시다."/><meta data-react-helmet="true" name="twitter:image" content="/static/368f999e524384af26a4adc508facc4d/defalut-thumbnail.png"/><meta data-react-helmet="true" name="twitter:site" content="@5onchangwoo"/><meta data-react-helmet="true" name="twitter:creator" content="@5onchangwoo"/><meta data-react-helmet="true" name="naver-site-verification" content="2fcd51b0a26aabd80ff725901900a2be6a94cb6f"/><meta data-react-helmet="true" name="google-site-verification" content="IAIWAUkfyflQh1SHEkbb1zSRlQ-gakO2rvLCOTLpUso"/><style data-href="/styles.9134b44f79420454f79c.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;text-shadow:0 -.1em .2em #000;white-space:pre;word-break:normal;word-spacing:normal}:not(pre)>code[class*=language-],pre[class*=language-]{background:#141414}pre[class*=language-]{border:.3em solid #545454;border-radius:.5em;box-shadow:inset 1px 1px .5em #000;margin:.5em 0;overflow:auto;padding:1em}pre[class*=language-]::selection{background:#27292a}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:hsla(0,0%,93%,.15);text-shadow:none}:not(pre)>code[class*=language-]{border:.13em solid #545454;border-radius:.3em;box-shadow:inset 1px 1px .3em -.1em #000;padding:.15em .2em .05em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#787878}.token.namespace,.token.punctuation{opacity:.7}.token.boolean,.token.deleted,.token.number,.token.tag{color:#cf694a}.token.builtin,.token.constant,.token.keyword,.token.property,.token.selector,.token.symbol{color:#f9ee9a}.language-css .token.string,.style .token.string,.token.attr-name,.token.attr-value,.token.char,.token.entity,.token.inserted,.token.operator,.token.string,.token.url,.token.variable{color:#919e6b}.token.atrule{color:#7386a5}.token.important,.token.regex{color:#e9c163}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.language-markup .token.attr-name,.language-markup .token.punctuation,.language-markup .token.tag{color:#ad895c}.token{position:relative;z-index:1}.line-highlight.line-highlight{background:rgba(84,84,84,.25);background:linear-gradient(90deg,rgba(84,84,84,.1) 70%,rgba(84,84,84,0));border-bottom:1px dashed #545454;border-top:1px dashed #545454;margin-top:.75em;z-index:0}.line-highlight.line-highlight:before,.line-highlight.line-highlight[data-end]:after{background-color:#8794a6;color:#f5f2f0}pre[class*=language-].line-numbers{counter-reset:linenumber;padding-left:3.8em;position:relative}pre[class*=language-].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{border-right:1px solid #999;font-size:100%;left:-3.8em;letter-spacing:-1px;pointer-events:none;position:absolute;top:0;-webkit-user-select:none;user-select:none;width:3em}.line-numbers-rows>span{counter-increment:linenumber;display:block}.line-numbers-rows>span:before{color:#999;content:counter(linenumber);display:block;padding-right:.8em;text-align:right}</style><title data-react-helmet="true">Spring boot의 설정 정보(application.yml / properties) 분리시키기 - spring profiles</title><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="canonical" href="https://5onchangwoo.github.io/springboot/spring-profiles/" data-baseprotocol="https:" data-basehost="5onchangwoo.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1oj83b30"><style data-emotion="css-global 1tp8h3s">@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}:root{--main-color:#fff;--box-shadow:0 0 2px rgba(0, 0, 0, 0.7);--post-item-hover-shadow:0 0 20px rgba(0, 0, 0, 1);}:root .dark{--main-color:#121212;--second-color:#242424;--text-color:#fff;--box-shadow:0 0 2px rgba(255, 255, 255, 0.7);--post-item-hover-shadow:0 0 20px rgba(255, 255, 255, 1);background-color:var(--main-color);color:var(--text-color);}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp ewnd50x1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo ewnd50x0"><div style="max-width:600px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;800&#x27;%20width=&#x27;600&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAAAsSAAALEgHS3X78AAABlUlEQVR42oXKSS8EQRwF8P/HsItlMI2R2BLLwbjgorkIF+FAcLCccMHFkliSGVuPbYaEAwdCrF+mq2d6qY8h3dXd1V1dlUl+eXl5efBXgiJU4rdE/S1l/RHOAX5KEasMfdtUkR8PfJWjT64KQhX5KlfhowKFVLreQ1TfRwC8VSFWte1V4K1a9cFLDeKrpZ5r0XMdeiECOzzVa66YDxGPMfTYwHryxRDk4hqHpGUpFJVzQKZVcyVClISmtAllHJDqyId0RnRpInDQkw/p5eljaATsDBRCkjyDeS5YH9YjCq6RImBZ1pdlfUXWV8YExr0cLzBgbtKYmzTmWbptqgiYnjGKmGXoPphYMHmMiUWxJReMrpoi8qoprwUZDBjasByma92k3THs22RBcssK2WaYyR1zUAD6di1qL2Lf6t+3kzqgoPvQoo4ijgNOWNCewhxp3J62XKcBZyHQdo45LgIuCcumUAnFghYFc2So1quAa9xC3NhAusZxHunGc4ubPdKdK57FUhZD4x1mNBHZgJzn3vOAGx/wPytAgY2EjJGyAAAAAElFTkSuQmCC" alt=""/><picture><source type="image/webp" data-srcset="/static/368f999e524384af26a4adc508facc4d/0526f/defalut-thumbnail.webp 150w,/static/368f999e524384af26a4adc508facc4d/6ab4e/defalut-thumbnail.webp 300w,/static/368f999e524384af26a4adc508facc4d/06ea9/defalut-thumbnail.webp 600w" sizes="(min-width: 600px) 600px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 600px) 600px, 100vw" decoding="async" loading="lazy" data-src="/static/368f999e524384af26a4adc508facc4d/fef98/defalut-thumbnail.png" data-srcset="/static/368f999e524384af26a4adc508facc4d/5d695/defalut-thumbnail.png 150w,/static/368f999e524384af26a4adc508facc4d/f3ecd/defalut-thumbnail.png 300w,/static/368f999e524384af26a4adc508facc4d/fef98/defalut-thumbnail.png 600w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/368f999e524384af26a4adc508facc4d/0526f/defalut-thumbnail.webp 150w,/static/368f999e524384af26a4adc508facc4d/6ab4e/defalut-thumbnail.webp 300w,/static/368f999e524384af26a4adc508facc4d/06ea9/defalut-thumbnail.webp 600w" sizes="(min-width: 600px) 600px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 600px) 600px, 100vw" decoding="async" loading="lazy" src="/static/368f999e524384af26a4adc508facc4d/fef98/defalut-thumbnail.png" srcSet="/static/368f999e524384af26a4adc508facc4d/5d695/defalut-thumbnail.png 150w,/static/368f999e524384af26a4adc508facc4d/f3ecd/defalut-thumbnail.png 300w,/static/368f999e524384af26a4adc508facc4d/fef98/defalut-thumbnail.png 600w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e22nvw23"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e22nvw22"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e22nvw21">Spring boot의 설정 정보(application.yml / properties) 분리시키기 - spring profiles</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e22nvw20"><div>cs / design-pattern</div><div>2023.06.12.</div></div></div></div><style data-emotion="css w49rfl">.css-w49rfl{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-w49rfl p{padding:3px 0;}.css-w49rfl h1,.css-w49rfl h2,.css-w49rfl h3{font-weight:800;margin-bottom:20px;}.css-w49rfl *+h1,.css-w49rfl *+h2,.css-w49rfl *+h3{margin-top:40px;}.css-w49rfl hr+h1,.css-w49rfl hr+h2,.css-w49rfl hr+h3{margin-top:0;}.css-w49rfl h1{font-size:30px;}.css-w49rfl h2{font-size:25px;}.css-w49rfl h3{font-size:20px;}.css-w49rfl blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-w49rfl ol,.css-w49rfl ul{margin-left:20px;padding:10px 0 30px 0;}.css-w49rfl hr{border:1px solid #000000;margin:100px 0;}.css-w49rfl a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-w49rfl pre[class*='language-']{margin:0 0 30px 0;padding:15px;font-size:15px;}.css-w49rfl pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-w49rfl code[class*='language-'],.css-w49rfl pre[class*='language-']{tab-size:2;}.css-w49rfl .gatsby-highlight pre[class*='language-'].line-numbers{padding:0;padding-left:2.8em;}.css-w49rfl .gatsby-highlight pre[class*='language-'].line-numbers span{padding-left:0.2em;}@media (max-width: 768px){.css-w49rfl{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-w49rfl h1{font-size:23px;}.css-w49rfl h2{font-size:20px;}.css-w49rfl h3{font-size:17px;}.css-w49rfl img{width:100%;}.css-w49rfl hr{margin:50px 0;}}</style><div class="css-w49rfl ek55sos0"><h3>사용 이유</h3>
+<p>현재 진행 중인 프로젝트에서 오라클 클라우드 프리티어를 이용해서 배포 테스트를 진행하게 되었습니다.</p>
+<p>현재 application.yml을 서브 모듈 ( <a href="https://teching.tistory.com/144" target="_blank" rel="nofollow">https://teching.tistory.com/144</a> )을 사용해서 관리하고 있는 상황이었습니다.</p>
+<p>오라클 클라우드의 DB는 특이하게 지갑을 이용해서 접속해야 하는데 그 경로를 지정해주어야 합니다. 예를 들어 DB에 접속하기 위해서라면 아래와 같이 yml을 작성해야 합니다.</p>
+<div class="gatsby-highlight" data-language="yml"><pre style="counter-reset: linenumber NaN" class="language-yml line-numbers"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>oracle<span class="token punctuation">:</span>thin<span class="token punctuation">:</span>@sixteens_low<span class="token punctuation">?</span>TNS_ADMIN=./src/main/resources/Wallet_sixteens
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> exam
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> example<span class="token tag">!</span>
+    <span class="token key atrule">driverClassName</span><span class="token punctuation">:</span> oracle.jdbc.OracleDriver</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>위와 같이 현재 위치해 있는 지갑의 경로를 지정해주어야 하는데요.</p>
+<p>이를 빌드하여 Docker로 말아야 할 때도 이 경로가 위치한 곳에 지갑을 위치해 두어야 해서 빌드할 때마다 yml을 수정해주어야 해서 매우 불편함을 느꼈고 이를 해결하고자 Spring boot에 있는 profile 기능을 도입하게 되었습니다.</p>
+<h3>Profiles 적용하기</h3>
+<blockquote>
+<p>Spring Profiles는 애플리케이션 구성의 일부를 분리하고 특정 환경에서만 사용할 수 있도록 하는 방법을 제공합니다.</p>
+</blockquote>
+<p>공식 문서에서 가져온 문구인데 지금 내게 딱 필요한 기능이 아닐까 싶었습니다.  👍🏻</p>
+<p>버전은 spring boot 2.4 이상을 기준으로 하겠습니다. 이전 버전에서 사용되던 profiles 방식은 deprecated 되었습니다…ㅠ</p>
+<p>Spring profile은 말 그대로 환경마다 설정을 다르게 적용하고 싶을 때 사용하면 적절한 방법이 될 수 있습니다.</p>
+<h3>기본 사용 방법</h3>
+<h4>a. 프로필 설정</h4>
+<p>1. 파일명 규칙</p>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">application-<span class="token punctuation">{</span>profile<span class="token punctuation">}</span>.yml</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<ul>
+<li>(properties)로 파일을 만들 때 profile부분에 원하는 프로필명을 넣어주면 스프링이 시작할 때 스캔을 하면서 application-*. yml을 모두 찾아 config에 저장하게 됩니다.</li>
+</ul>
+<p>2. yml파일 내에서 선언하기</p>
+<div class="gatsby-highlight" data-language="yml"><pre style="counter-reset: linenumber NaN" class="language-yml line-numbers"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">activate</span><span class="token punctuation">:</span>
+      <span class="token key atrule">on-profile</span><span class="token punctuation">:</span> <span class="token string">'프로필명'</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>on-profile을 지정하면 해당 프로필명으로 지정이 되게 됩니다.</li>
+<li>—를 사용해서 한 파일 내에 구역을 나눠 여러 프로필을 지정할 수 있습니다.</li>
+<li>만약 on-profile을 지정하지 않는다면 default로 지정이 됩니다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="yml"><pre style="counter-reset: linenumber NaN" class="language-yml line-numbers"><code class="language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">activate</span><span class="token punctuation">:</span>
+      <span class="token key atrule">on-profile</span><span class="token punctuation">:</span> a
+
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8888</span>
+
+<span class="token punctuation">---</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">activate</span><span class="token punctuation">:</span>
+      <span class="token key atrule">on-profile</span><span class="token punctuation">:</span> b
+
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">9999</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>아무 프로필을 활성화하지 않는다면 포트가 8080</li>
+<li>a 프로필 활성화 시 8888, b 프로필 활성화시 9999 포트로 지정되게 할 수 있다.</li>
+</ul>
+<h4>b. 프로필 활성화 방법</h4>
+<p>1. yml에서 활성화시키기</p>
+<div class="gatsby-highlight" data-language="yml"><pre style="counter-reset: linenumber NaN" class="language-yml line-numbers"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 활성화할 profile 명
+    <span class="token key atrule">group</span><span class="token punctuation">:</span>
+      <span class="token key atrule">그룹으로 묶을 이름</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> 활성화 시킬 프로필
+      <span class="token key atrule">그룹으로 묶을 이름2</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> 활성화 시킬 프로필
+    <span class="token key atrule">include</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 모든 그룹에 포함시킬 프로필1
+      <span class="token punctuation">-</span> 모든 그룹에 포함시킬 프로필2</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>active에는 기본적으로 활성시킬 프로필 명을 적어주면 됩니다.</li>
+<li>group은 프로필들을 모아 새로운 프로필로 만들어주는 기능을 합니다.</li>
+<li>include는 모든 프로필에 기본적으로 포함시킬 프로필명들을 적어주면 됩니다.</li>
+</ul>
+<p>2. 코드에서 어노테이션으로 적용하기</p>
+<div class="gatsby-highlight" data-language="java"><pre style="counter-reset: linenumber NaN" class="language-java line-numbers"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@Profile</span><span class="token punctuation">(</span><span class="token string">"프로필명"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DevDatasourceConfig</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>이와 같이 활성화시킬 profile명을 @Porfile의 값에 넣어주면 됩니다.</li>
+</ul>
+<p>3. 실행 시 옵션으로 프로필 선택하기</p>
+<p>-Dspring.profiles.active 옵션을 사용하면 실행시 프로필을 선택할 수 있습니다!</p>
+<h3>사용 예시</h3>
+<p>사용 예시를 통해서 적용 방법을 좀 더 알아보도록 하겠습니다.<br>
+예시 상황은 local에서 개발할 때와 prod로 배포할 때 DB접속을 다르게 하고 싶은 상황입니다. 또한 applicaiton.yml을 따로 관리하고 싶어 디렉터리를 두고 그곳에서 관리하고 있는 상황이라고 가정하겠습니다.</p>
+<p>0. 폴더 구조</p>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash">/resources
+  /config
+    /Wallet_example
+      <span class="token punctuation">..</span>.지갑파일들
+    application-db.yml
+  application.yml</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>1. application-db.yml</p>
+<div class="gatsby-highlight" data-language="yml"><pre style="counter-reset: linenumber NaN" class="language-yml line-numbers"><code class="language-yml"><span class="token punctuation">---</span> <span class="token comment"># defalut 공통 설정</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">jpa</span><span class="token punctuation">:</span>
+    <span class="token key atrule">properties</span><span class="token punctuation">:</span>
+      <span class="token key atrule">hibernate</span><span class="token punctuation">:</span>
+        <span class="token key atrule">dialect</span><span class="token punctuation">:</span> org.hibernate.dialect.Oracle12cDialect
+        <span class="token key atrule">format_sql</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">use_sql_comment</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">show_sql</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token punctuation">---</span> <span class="token comment"># local</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">activate</span><span class="token punctuation">:</span>
+      <span class="token key atrule">on-profile</span><span class="token punctuation">:</span> <span class="token string">'db-local'</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>oracle<span class="token punctuation">:</span>thin<span class="token punctuation">:</span>@example_low<span class="token punctuation">?</span>TNS_ADMIN=./src/main/resources/Wallet_example
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> exam
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> example<span class="token tag">!</span>
+    <span class="token key atrule">driverClassName</span><span class="token punctuation">:</span> oracle.jdbc.OracleDriver
+<span class="token punctuation">---</span> <span class="token comment"># oracle 클라우드</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">activate</span><span class="token punctuation">:</span>
+      <span class="token key atrule">on-profile</span><span class="token punctuation">:</span> <span class="token string">'db-prod'</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>oracle<span class="token punctuation">:</span>thin<span class="token punctuation">:</span>@example_low<span class="token punctuation">?</span>TNS_ADMIN=/var/Wallet_example
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> exam
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> example<span class="token tag">!</span>
+    <span class="token key atrule">driverClassName</span><span class="token punctuation">:</span> oracle.jdbc.OracleDriver</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>기본적으로 profile은 application-{profile}.yml (properties) 형태로 작성해 두어야 합니다. (스캔할 때 config에 *.yml로 import 하기 때문입니다.)</li>
+<li><code class="language-text">---</code> : 설정 정보를 분리시킬 수 있습니다. (properties에서는 <code class="language-text">#---</code> 로 구분해야 합니다)</li>
+<li>각 환경별로 설정 정보를 다르게 적용하여 prod환경에서는 /var/Wallet_eample에 위치한 지갑을 사용하도록 하였습니다.
+<ul>
+<li>이는 후에 Docker로 빌드할 때 /var/Wallet_example 위치에 지갑을 위치하도록 해야 합니다!</li>
+</ul>
+</li>
+</ul>
+<p>2. application.yml</p>
+<div class="gatsby-highlight" data-language="yml"><pre style="counter-reset: linenumber NaN" class="language-yml line-numbers"><code class="language-yml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">import</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> classpath<span class="token punctuation">:</span>config<span class="token punctuation">-</span>file/application<span class="token punctuation">-</span>db.yml
+
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> example
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">include</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db
+    <span class="token key atrule">active</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> local
+    <span class="token key atrule">group</span><span class="token punctuation">:</span>
+      <span class="token key atrule">local</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> db<span class="token punctuation">-</span>local
+      <span class="token key atrule">prod</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> db<span class="token punctuation">-</span>prod
+      prod<span class="token punctuation">:</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>import 문은 현재 application-db.yml이 application.yml과 다른 디렉토리에 위치하고 있기 때문에 import를 통해서 설정을 추가해주어야 합니다.
+<ul>
+<li>같은 디렉토리에 위치한 .yml (.properties)는 자동으로 스프링 부트가 찾아주기 때문에 import로 넣지 않아도 괜찮습니다.</li>
+</ul>
+</li>
+<li>include는 기본적으로 포함시킬 profile을 선택하는 것입니다. 예시에서는 db만 추가하면 됐으니 db를 추가해 주었습니다.
+<ul>
+<li>on-profile을 설정하지 않는다면 default로 동작하게 됩니다. 따라서 위와 같이 공통 설정이 있는 경우 추가해주어야 합니다.</li>
+</ul>
+</li>
+<li>active는 현재 동작시킬 profile을 선택하는 것입니다. 환경을 설정하는 방법에는 여러 가지 방법이 있습니다. 후에 추가로 작성하겠습니다!</li>
+<li>group은 여러 설정들을 합쳐 하나의 profile로 묶는 기능입니다.
+<ul>
+<li>여기에서는 local에는 db-local을 포함시키고 prod에는 db-prod을 포함시키게 됩니다.</li>
+<li>한 개의 프로필을 사용할 때는 없어도 괜찮지만 관련 설정들을 추가할수록 관리하기가 어렵기 때문에 group으로 묶어서 한 번에 관리하는 것이 좋아 보입니다.</li>
+</ul>
+</li>
+</ul>
+<p>이렇게 구성한 서버를 동작시켜 보면</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8eb16658c453f0b3c6e09d1483e026dc/bbbf7/exec.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 21.875%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAeklEQVR42pWONw4DMRAD7x8KvbJWWf9/GI1dwG6NKwYMBcEnZUIpBTln0ZQSaq2iIYTXPEQNvQ+MMTDnFGV43Hv/frDUjD4J1Ko846He+99B59wPzjFG4dl7Ye2JxboWzjm494rnp+y54/yltQZjDJRS0FrDWgsikv4DEkd6qM7v88UAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/8eb16658c453f0b3c6e09d1483e026dc/a59e9/exec.webp 192w,
+/static/8eb16658c453f0b3c6e09d1483e026dc/0ca9f/exec.webp 384w,
+/static/8eb16658c453f0b3c6e09d1483e026dc/dc9b9/exec.webp 768w,
+/static/8eb16658c453f0b3c6e09d1483e026dc/e2c2f/exec.webp 1152w,
+/static/8eb16658c453f0b3c6e09d1483e026dc/94b1e/exec.webp 1280w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/8eb16658c453f0b3c6e09d1483e026dc/3b721/exec.png 192w,
+/static/8eb16658c453f0b3c6e09d1483e026dc/66595/exec.png 384w,
+/static/8eb16658c453f0b3c6e09d1483e026dc/fe486/exec.png 768w,
+/static/8eb16658c453f0b3c6e09d1483e026dc/d2d74/exec.png 1152w,
+/static/8eb16658c453f0b3c6e09d1483e026dc/bbbf7/exec.png 1280w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/8eb16658c453f0b3c6e09d1483e026dc/fe486/exec.png"
+            alt="이미지"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<div class="gatsby-highlight" data-language="text"><pre style="counter-reset: linenumber NaN" class="language-text line-numbers"><code class="language-text">The following 3 profiles are active: "db", "local", "db-local"</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<p>문구를 확인해 보면 현재 db, local, db-local프로필들이 활성화되는 것을 확인할 수 있습니다.</p>
+<p>만약 jar를 실행할 때 profile을 결정하고 싶다면 jar를 실행할때 아래와 같이 -Dspring.profiles.active={설정할 profile이름}을 사용하면 실행환경에서 profile을 변경할 수 있습니다!</p>
+<div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber NaN" class="language-bash line-numbers"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-jar</span> <span class="token parameter variable">-Dspring.profiles.active</span><span class="token operator">=</span>prod /app.jar</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e37rk6g0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx evi8j960">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2023 Developer Son, Powered By Gatsby.</footer><style data-emotion="css 7oodsm">.css-7oodsm{position:fixed;margin-top:10px;right:0;margin-right:10px;}.css-7oodsm .toggle{height:30px;width:60px;border-radius:50px;margin:auto;background-image:linear-gradient(skyblue, white);position:relative;cursor:pointer;box-shadow:var(--box-shadow);}@media (max-width: 768px){.css-7oodsm .toggle{height:20px;width:40px;}}.css-7oodsm .toggle.dark{background-image:linear-gradient(midnightblue, rebeccapurple);}.css-7oodsm .notch{height:90%;width:45%;border-radius:50%;background:#f2f5a9;position:absolute;top:5%;left:2.5%;box-shadow:0 0 5px yellow;z-index:1;-webkit-transition:all 0.6s ease;transition:all 0.6s ease;}.css-7oodsm .notch>.crater{background:burlywood;border-radius:50%;position:absolute;opacity:0;box-shadow:0 5px 5px rgba(0, 0, 0, 0.4) inset;}.css-7oodsm .dark .crater{opacity:0.4;}.css-7oodsm .crater:first-of-type{left:15%;top:7.5%;height:15%;width:20%;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);}.css-7oodsm .crater:last-child{right:15%;top:7.5%;height:15%;width:12.5%;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);}.css-7oodsm .dark>.notch{background:whitesmoke;box-shadow:0 0 5px whitesmoke;-webkit-transform:translate(110%, 0);-moz-transform:translate(110%, 0);-ms-transform:translate(110%, 0);transform:translate(110%, 0);}.css-7oodsm .shape{position:absolute;background:#e6e6e6;border-radius:50%;-webkit-transition:all 0.2s;transition:all 0.2s;}.css-7oodsm .shape.sm{height:5%;width:25%;top:50%;left:60%;-webkit-transition:all 0s ease-out;transition:all 0s ease-out;}.css-7oodsm .shape.md{height:10%;width:32.5%;top:25%;left:25%;z-index:2;}.css-7oodsm .shape.lg{height:15%;width:50%;bottom:20%;left:25%;}.css-7oodsm .dark .shape{background:lightgray;box-shadow:0 0 0.7px 0.5px violet;}.css-7oodsm .dark .shape.sm{height:5%;width:2.5%;-webkit-transform:translate(-800%, 0);-moz-transform:translate(-800%, 0);-ms-transform:translate(-800%, 0);transform:translate(-800%, 0);background:#f3f781;}.css-7oodsm .dark .shape.sm:first-of-type{-webkit-transform:translate(-700%, 300%);-moz-transform:translate(-700%, 300%);-ms-transform:translate(-700%, 300%);transform:translate(-700%, 300%);}.css-7oodsm .dark .shape.md{height:10%;width:5%;-webkit-transform:translate(5%, 0);-moz-transform:translate(5%, 0);-ms-transform:translate(5%, 0);transform:translate(5%, 0);}.css-7oodsm .dark .shape.lg{height:15%;width:10%;-webkit-transform:translate(-100%, 0);-moz-transform:translate(-100%, 0);-ms-transform:translate(-100%, 0);transform:translate(-100%, 0);}</style><div class="theme-button-wrapper css-7oodsm e1pyddnw0"><div class="toggle"><div class="notch"><div class="crater"></div><div class="crater"></div></div><div><div class="shape sm"></div><div class="shape sm"></div><div class="shape md"></div><div class="shape lg"></div></div></div></div></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/springboot/spring-profiles/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-aa121af5bb1fed6184b9.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-1bf7e9849b5082318f7c.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-0ae55313969a2f8353a3.js\"],\"component---src-pages-info-tsx\":[\"/component---src-pages-info-tsx-6e2a72ce878605da4937.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-b33672f386d4f76f9c02.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="259f4f23a25b942ade35";</script><script src="/webpack-runtime-79e6eeb58b9ce9735f79.js" async></script><script src="/framework-6a525285796fb83f2864.js" async></script><script src="/app-aa121af5bb1fed6184b9.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
