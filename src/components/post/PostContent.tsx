@@ -90,7 +90,6 @@ const MarkdownRenderer = styled.div<any>`
     margin: 0 0 30px 0;
     padding: 15px;
     font-size: 15px;
-
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
       border-radius: 3px;
@@ -103,7 +102,11 @@ const MarkdownRenderer = styled.div<any>`
   }
 
   .gatsby-highlight pre[class*='language-'].line-numbers {
+    padding: 0;
     padding-left: 2.8em;
+  }
+  .gatsby-highlight pre[class*='language-'].line-numbers span {
+    padding-left: 0.2em;
   }
 
   // Markdown Responsive Design
